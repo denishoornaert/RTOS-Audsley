@@ -46,7 +46,8 @@ class Simulator ():
                         counter += 1;
                         cpuUsed -= 1;
                     else:
-                        print("Deadline missed !");
+                        s = "{0}: Job T{1}J{2} misses a deadline";
+                        print(s.format(counter, task.priority, jobNb));
                         break;
             else:
                 counter += 1;
