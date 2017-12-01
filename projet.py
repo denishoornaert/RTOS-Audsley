@@ -20,12 +20,12 @@ class Main:
         else:
             raise AttributeError("Missing argument")
 
-        config = FileReader.produceConfig(argv[1]);
-
         if(argv[0] == "interval"):
+            config = FileReader.produceConfig(argv[1]);
             print(config.feasibilityInterval());
         elif(argv[0] == "sim"):
-            sim = Simulator();
+            config = FileReader.produceConfig(argv[3]);
+            sim = Simulator(int(argv[1]), int(argv[2]));
             sim.setConfig(config);
             sim.start();
             print(sim);

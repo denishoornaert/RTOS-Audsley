@@ -1,20 +1,20 @@
 from Task import *
 from Configuration import *
 
-EDGE = 30 # TODO replace 'EDGE' by OMax+(2xPMax)
-
 class Simulator ():
 
     """docstring for Simulator."""
 
-    def __init__(self):
+    def __init__(self, lowerBound, upperBound):
+        self.lowerBound = lowerBound;
+        self.upperBound = upperBound;
         self.timeline = [];
         self.config = None;
         self.initList();
 
     def __str__(self):
         out = "";
-        res = [" "*EDGE for i in range(len(self.config.tasks))];
+        res = [" "*self.upperBound for i in range(len(self.config.tasks))];
         for i in range(len(self.timeline)):
             elem = self.timeline[i];
             if(elem != None):
@@ -25,7 +25,7 @@ class Simulator ():
         return out;
 
     def initList(self):
-        self.timeline = [None for i in range(EDGE)];
+        self.timeline = [None for i in range(self.upperBound)];
 
     def setConfig(self, config):
         self.config = config;
@@ -34,7 +34,7 @@ class Simulator ():
         counter = task.offset;
         cpuUsed = task.wcet;
         jobNb = 0;
-        while(counter < EDGE):
+        while(counter < self.upperBound):
             if(self.timeline[counter] == None):
                 if(not cpuUsed): # cpuUsed == 0
                     jobNb += 1;
