@@ -3,6 +3,7 @@
 
 import sys
 from Configuration import *
+from Simulator import *
 from FileReader import *
 
 
@@ -24,7 +25,10 @@ class Main:
         if(argv[0] == "interval"):
             print(config.feasibilityInterval());
         elif(argv[0] == "sim"):
-            pass
+            sim = Simulator();
+            sim.setConfig(config);
+            sim.start();
+            print(sim);
         elif(argv[0] == "audsley"):
             pass
         elif(argv[0] == "gen"):
