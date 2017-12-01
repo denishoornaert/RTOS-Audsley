@@ -5,7 +5,7 @@ class Configuration ():
     """docstring for Configuration."""
 
     def __init__(self):
-        self.tasks = set();
+        self.tasks = [];
 
     def __str__(self):
         res = "";
@@ -20,7 +20,7 @@ class Configuration ():
         return max([task.period for task in self.tasks]);
 
     def add(self, task):
-        self.tasks.add(task);
+        self.tasks.append(task);
 
     def feasibilityInterval(self):
         OMax = self.getOMax();
