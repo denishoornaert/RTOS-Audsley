@@ -41,9 +41,13 @@ class Simulator ():
                     counter = task.offset+(jobNb*task.period);
                     cpuUsed = task.wcet;
                 else:
-                    self.timeline[counter] = task;
-                    counter += 1;
-                    cpuUsed -= 1;
+                    if(counter < task.offset+(jobNb*task.period)+task.deadline):
+                        self.timeline[counter] = task;
+                        counter += 1;
+                        cpuUsed -= 1;
+                    else:
+                        print("Deadline missed !");
+                        break;
             else:
                 counter += 1;
 
