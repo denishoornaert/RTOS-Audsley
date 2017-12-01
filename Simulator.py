@@ -1,6 +1,8 @@
 from Task import *
 from Configuration import *
 
+EDGE = 30
+
 class Simulator ():
 
     """docstring for Simulator."""
@@ -17,7 +19,7 @@ class Simulator ():
         return res+"|";
 
     def initList(self):
-        self.timeline = [None for i in range(210)];
+        self.timeline = [None for i in range(EDGE)];
 
     def setConfig(self, config):
         self.config = config;
@@ -26,15 +28,18 @@ class Simulator ():
         counter = task.offset;
         cpuUsed = task.wcet;
         jobNb = 0;
-        while(counter < 210):
-            if(not cpuUsed): # cpuUsed == 0
-                jobNb += 1;
-                counter = task.offset+(jobNb*task.period);
-                cpuUsed = task.wcet;
+        while(counter < EDGE):
+            if(self.timeline[counter] == None):
+                if(not cpuUsed): # cpuUsed == 0
+                    jobNb += 1;
+                    counter = task.offset+(jobNb*task.period);
+                    cpuUsed = task.wcet;
+                else:
+                    self.timeline[counter] = task;
+                    counter += 1;
+                    cpuUsed -= 1;
             else:
-                self.timeline[counter] = task;
                 counter += 1;
-                cpuUsed -= 1;
 
     # Throw an error.
     def start(self):
