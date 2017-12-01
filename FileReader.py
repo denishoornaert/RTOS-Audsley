@@ -21,7 +21,7 @@ class FileReader ():
         res = []
         for i in range(len(data)):
             r = data[i];
-            res.append(Task(int(r[0]), int(r[3]), int(r[2]), int(r[1]), i));
+            res.append(Task(int(r[0]), int(r[1]), int(r[2]), int(r[3]), i));
         return res;
 
     @staticmethod
