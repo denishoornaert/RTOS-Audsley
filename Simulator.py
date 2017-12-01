@@ -1,7 +1,7 @@
 from Task import *
 from Configuration import *
 
-EDGE = 30
+EDGE = 30 # TODO replace 'EDGE' by OMax+(2xPMax)
 
 class Simulator ():
 
@@ -13,10 +13,16 @@ class Simulator ():
         self.initList();
 
     def __str__(self):
-        res = "";
-        for elem in self.timeline:
-            res += " " if (elem == None) else str(elem.priority);
-        return res+"|";
+        out = "";
+        res = [" "*EDGE for i in range(len(self.config.tasks))];
+        for i in range(len(self.timeline)):
+            elem = self.timeline[i];
+            if(elem != None):
+                res[elem.priority] = res[elem.priority][:i]+str(elem.priority)+res[elem.priority][i:];
+        res.reverse();
+        for line in res:
+            out += line+"\n";
+        return out;
 
     def initList(self):
         self.timeline = [None for i in range(EDGE)];
