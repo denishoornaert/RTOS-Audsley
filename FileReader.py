@@ -18,7 +18,11 @@ class FileReader ():
 
     @staticmethod
     def convertToTasks(data):
-        return [Task(int(r[0]), int(r[3]), int(r[2]), int(r[1])) for r in data];
+        res = []
+        for i in range(len(data)):
+            r = data[i];
+            res.append(Task(int(r[0]), int(r[3]), int(r[2]), int(r[1]), i));
+        return res;
 
     @staticmethod
     def createConfiguration(tasks):
