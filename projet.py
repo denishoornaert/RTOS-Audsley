@@ -6,6 +6,7 @@ from Configuration import *
 from Simulator import *
 from Audsley import *
 from FileReader import *
+from OutputFactory import *
 
 
 class Main:
@@ -30,6 +31,7 @@ class Main:
             sim.setConfig(config);
             sim.start();
             print(sim);
+            OutputFactory.produce(sim, "schedule1.png");
         elif(argv[0] == "audsley"):
             config = FileReader.produceConfig(argv[3]);
             aud = Audsley(int(argv[1]), int(argv[2]));
