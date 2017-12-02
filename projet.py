@@ -4,6 +4,7 @@
 import sys
 from Configuration import *
 from Simulator import *
+from Audsley import *
 from FileReader import *
 
 
@@ -30,7 +31,11 @@ class Main:
             sim.start();
             print(sim);
         elif(argv[0] == "audsley"):
-            pass
+            config = FileReader.produceConfig(argv[3]);
+            aud = Audsley(int(argv[1]), int(argv[2]));
+            aud.setConfig(config);
+            aud.start();
+            print(aud);
         elif(argv[0] == "gen"):
             pass
         else:
