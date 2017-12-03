@@ -24,10 +24,7 @@ class Configuration ():
         return sum([task.utilisation() for task in self.tasks])*100;
 
     def isSynchronous(self):
-        res = 0; #res = False;
-        for task in self.tasks:
-            res += int(task.offset == self.tasks[0].offset);
-        return not bool(res);
+        return all(self.tasks[0].offset == task.offset for task in self.tasks);
 
     def add(self, task):
         self.tasks.append(task);
