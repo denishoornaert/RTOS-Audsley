@@ -11,6 +11,7 @@ class Configuration ():
         res = "";
         for task in self.tasks:
             res += task.__str__();
+        res += "Utilisation : "+str(self.getUtilisation());
         return res;
 
     def getOMax(self):
@@ -18,6 +19,9 @@ class Configuration ():
 
     def getPMax(self):
         return max([task.period for task in self.tasks]);
+
+    def getUtilisation(self):
+        return sum([task.wcet/task.period for task in self.tasks])*100;
 
     def add(self, task):
         self.tasks.append(task);
