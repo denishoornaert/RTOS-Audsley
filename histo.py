@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 histogram=plt.figure()
 
 x = [];
-for i in range(0, 10000):
-    config = Generator.configuration(3, 70);
+for i in range(0, 100000):
+    config = Generator.configuration(6, 70);
     x.append(config.getUtilisation());
 
 bins = numpy.linspace(min(x), max(x), 100);
