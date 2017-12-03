@@ -21,7 +21,13 @@ class Configuration ():
         return max([task.period for task in self.tasks]);
 
     def getUtilisation(self):
-        return sum([task.wcet/task.period for task in self.tasks])*100;
+        return sum([task.utilisation() for task in self.tasks])*100;
+
+    def isSynchronous(self):
+        res = 0; #res = False;
+        for task in self.tasks:
+            res += int(task.offset == self.tasks[0].offset);
+        return not bool(res);
 
     def add(self, task):
         self.tasks.append(task);
