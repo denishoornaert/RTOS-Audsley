@@ -40,9 +40,17 @@ class Main:
             aud.start();
             print(aud);
         elif(argv[0] == "gen"):
+            # Generation of the system
             config = Generator.configuration(int(argv[1]), int(argv[2]));
+            # Determine feasibility interval (used by Audsley algorithm)
+            interval = config.feasibilityInterval();
+            # Find the priority and thus the order to which write the task in the file
+            aud = Audsley(interval[0], interval[1]);
+            aud.setConfig(config);
+            aud.start();
+            print(aud)
+            print(config)
             FileController.writeConfig(config, argv[3]);
-            print(config);
         else:
             raise AttributeError("Unknow argument: " + str(argv[0]))
 
