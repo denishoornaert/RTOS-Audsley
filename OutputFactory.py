@@ -23,7 +23,8 @@ class OutputFactory ():
     def generateFigure(matrix):
         fig = plt.figure();
         ax = fig.add_subplot(1,1,1);
-        ax = fig.add_subplot(1,1,1);
+        ax.set_aspect('equal');
+        plt.yticks(range(0, len(matrix)));
         plt.imshow(matrix, interpolation='nearest', cmap=plt.cm.get_cmap('hot_r'));
         plt.xlabel('Time slots');
         plt.ylabel('Tasks');
