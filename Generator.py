@@ -2,8 +2,8 @@ from random import randint
 from Configuration import *
 from Task import *
 
-OFFSET_UPPERBOUND = 20;
-PERIOD_UPPERBOUND = 20;
+OFFSET_UPPERBOUND = 100;
+PERIOD_UPPERBOUND = 100;
 
 class Generator ():
 
