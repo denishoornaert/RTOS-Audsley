@@ -1,32 +1,36 @@
-from random import randint
+from random import uniform
+from math import floor
 from Configuration import *
 from Task import *
 
-OFFSET_UPPERBOUND = 100;
-PERIOD_UPPERBOUND = 100;
 
 class Generator ():
 
     """docstring for Generator."""
 
     @staticmethod
-    def task(remainingUtilisation, remainingTasks, utilisationLowerBound=1, offsetLowerBound=0):
+    def initUtilisations(tasksNumber, totalUtilisation):
+        utilisations = [uniform(1, 100)/100 for i in range(tasksNumber)];
+        factor = sum(utilisations)/totalUtilisation;
+        utilisations = [utilisation/factor for utilisation in utilisations];
+        return utilisations;
+
+    @staticmethod
+    def task(utilisation):
         # wcet of '1' at least otherwise the task is useless
-        wcet     = randint(utilisationLowerBound, (remainingUtilisation//remainingTasks));
-        period   = randint(wcet, PERIOD_UPPERBOUND);
-        deadline = randint(wcet, period);
-        offset   = randint(offsetLowerBound, OFFSET_UPPERBOUND);
+        wcet     = uniform(1, 10);
+        period   = floor(wcet/utilisation);
+        deadline = uniform(wcet, period);
+        offset   = uniform(0, 30);
         return Task(offset, period, deadline, wcet, None);
 
     @staticmethod
     def configuration(tasksNumber, utilisation):
         config = Configuration();
-        for i in range(0, tasksNumber-1):
-            task = Generator.task(utilisation, tasksNumber);
-            utilisation -= task.wcet;
+        utilisations = Generator.initUtilisations(tasksNumber, utilisation/100);
+        for u in utilisations:
+            task = Generator.task(u);
             config.add(task);
-        # the '1' ensure that even if the other tasks have been assigned an
-        # offset of '0', the system is well asynchrnous.
-        task = Generator.task(utilisation, 1, utilisation, 1);
-        config.add(task);
+        if(config.isSynchronous()):
+            pass;
         return config;
