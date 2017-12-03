@@ -41,7 +41,7 @@ class Main:
             print(aud);
         elif(argv[0] == "gen"):
             config = Generator.configuration(int(argv[1]), int(argv[2]));
-            FileController.writeConfig(config, "outcome.txt");
+            FileController.writeConfig(config, argv[3]);
             print(config);
         else:
             raise AttributeError("Unknow argument: " + str(argv[0]))
