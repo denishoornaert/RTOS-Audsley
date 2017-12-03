@@ -7,6 +7,7 @@ from Simulator import *
 from Audsley import *
 from FileReader import *
 from OutputFactory import *
+from Generator import *
 
 
 class Main:
@@ -39,7 +40,8 @@ class Main:
             aud.start();
             print(aud);
         elif(argv[0] == "gen"):
-            pass
+            config = Generator.configuration(int(argv[1]), int(argv[2]));
+            print(config);
         else:
             raise AttributeError("Unknow argument: " + str(argv[0]))
 
