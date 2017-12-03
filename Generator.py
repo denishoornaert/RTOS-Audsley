@@ -32,7 +32,5 @@ class Generator ():
             task = Generator.task(u);
             config.add(task);
         if(config.isSynchronous()):
-            print("sync");
-        else:
-            print("async");
+            config.tasks[0].offset += 1;
         return config;
