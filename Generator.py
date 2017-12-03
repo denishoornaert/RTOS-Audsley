@@ -1,5 +1,5 @@
-from random import uniform
-from math import floor
+from random import randint
+from math import floor, ceil
 from Configuration import *
 from Task import *
 
@@ -10,18 +10,18 @@ class Generator ():
 
     @staticmethod
     def initUtilisations(tasksNumber, totalUtilisation):
-        utilisations = [uniform(1, 100)/100 for i in range(tasksNumber)];
+        utilisations = [randint(10, 100) for i in range(tasksNumber)];
         factor = sum(utilisations)/totalUtilisation;
-        utilisations = [utilisation/factor for utilisation in utilisations];
+        utilisations = [round(utilisation/factor,2) for utilisation in utilisations];
         return utilisations;
 
     @staticmethod
     def task(utilisation):
         # wcet of '1' at least otherwise the task is useless
-        wcet     = uniform(1, 10);
-        period   = floor(wcet/utilisation);
-        deadline = uniform(wcet, period);
-        offset   = uniform(0, 30);
+        wcet     = randint(1, 10);
+        period   = ceil(wcet/utilisation);
+        deadline = randint(wcet, period);
+        offset   = randint(0, 30);
         return Task(offset, period, deadline, wcet, None);
 
     @staticmethod
@@ -32,5 +32,7 @@ class Generator ():
             task = Generator.task(u);
             config.add(task);
         if(config.isSynchronous()):
-            pass;
+            print("sync");
+        else:
+            print("async");
         return config;
