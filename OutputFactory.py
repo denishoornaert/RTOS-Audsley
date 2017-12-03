@@ -25,6 +25,8 @@ class OutputFactory ():
         ax = fig.add_subplot(1,1,1);
         ax = fig.add_subplot(1,1,1);
         plt.imshow(matrix, interpolation='nearest', cmap=plt.cm.get_cmap('hot_r'));
+        plt.xlabel('Time slots');
+        plt.ylabel('Tasks');
         return plt;
 
     @staticmethod
