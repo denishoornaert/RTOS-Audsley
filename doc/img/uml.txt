@@ -1,0 +1,66 @@
+@startuml
+class Main {
+}
+
+class FileController <static> <<Factory>> {
++writeConfig(Configuration);
++produceConfig(Configuration);
+}
+
+class Configuration {
+- tasks = [];
+-getOMax();
+-getPMax();
++getutilisation();
++isSynchronous();
++feasibilityInterval();
+}
+
+class Task {
+-int offset;
++int period;
++int deadline;
++int wcet;
++int priority;
++float utilisation();
+}
+
+class FTP {
+-timeline = [Task];
++Configuration config;
+-schedule(bool soft, Task task);
+#hardSchedule(Task task);
+}
+
+class Simulator {
++start();
+}
+
+class Audsley {
+-softSchedule(Task task);
+-bool lpv(Task task);
+-audsley(int recursionLevel, tasksSubSet);
++start();
+}
+
+class Generator <static> <<Factory>> {
++task(int utilisation);
++configuration(int tasksNumber, int utilisation);
+}
+
+class OutputFactory <static> <<Factory>> {
++produce(Simulator simulator, String filePath);
+}
+
+Main --- FileController
+Main --- Configuration
+Main --- Simulator
+Main --- Audsley
+Main --- Generator
+Main --- OutputFactory
+Configuration --- FileController
+Configuration *-- Task
+FTP <|- Simulator
+FTP <|- Audsley
+FTP *-- Configuration
+@enduml
