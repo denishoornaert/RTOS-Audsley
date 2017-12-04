@@ -18,7 +18,7 @@ results = [struct() for i in range(NB_THREADS)];
 threads = [];
 
 def gen(struct):
-    for i in range(0, 1000):
+    for i in range(0, 10000):
         config = Generator.configuration(6, 70);
         struct.list.append(config.getUtilisation());
     struct.minimum = min(struct.list);
@@ -41,8 +41,8 @@ res = [];
 for r in results:
     res.extend(r.list);
 
-print(len(res));
+print(min(res), max(res), sum(res)/len(res));
 bins = numpy.linspace(min(res), max(res), 200);
 
 plt.hist(res, bins, alpha=0.5);
-plt.show();
+plt.savefig("distribution.png", bbox_inches='tight');
