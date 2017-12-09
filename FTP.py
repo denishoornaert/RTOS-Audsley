@@ -10,7 +10,7 @@ class FTP:
 
     def __str__(self):
         out = ""
-        res = [" " * self.upperBound for i in range(len(self.config.tasks))]
+        res = [" " * self.upperBound for _ in range(len(self.config.tasks))]
         for i in range(len(self.timeline)):
             elem = self.timeline[i]
             if elem is not None:
@@ -21,7 +21,7 @@ class FTP:
         return out
 
     def initList(self):
-        self.timeline = [None for i in range(self.upperBound)]
+        self.timeline = [None for _ in range(self.upperBound)]
 
     def setConfig(self, config):
         self.config = config

@@ -6,12 +6,12 @@ class OutputFactory:
     """docstring for OutputFactory."""
 
     @staticmethod
-    def toFile(plt, filePath):
-        plt.savefig(filePath, bbox_inches='tight')
+    def toFile(plot, filePath):
+        plot.savefig(filePath, bbox_inches='tight')
 
     @staticmethod
     def toMatrix(simulator):
-        res = [[0 for i in range(len(simulator.timeline))] for j in range(len(simulator.config.tasks))]
+        res = [[0 for _ in range(len(simulator.timeline))] for _ in range(len(simulator.config.tasks))]
         for i in range(len(simulator.timeline)):
             elem = simulator.timeline[i]
             if elem is not None:

@@ -32,7 +32,7 @@ class Audsley(FTP):
                 tmpStr = ""
                 self.initList()
                 isLpv = self.lpv(task)
-                if (isLpv):
+                if isLpv:
                     lpvTask = task
                 else:
                     tmpStr = "not "

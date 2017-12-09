@@ -1,10 +1,7 @@
 class Task:
     """docstring for Task."""
 
-    def __init__(self):
-        self.__init__(0, 0, 0, 0, 0)
-
-    def __init__(self, offset, period, deadline, wcet, priority):
+    def __init__(self, offset=0, period=0, deadline=0, wcet=0, priority=0):
         self.offset = offset
         self.period = period
         self.deadline = deadline

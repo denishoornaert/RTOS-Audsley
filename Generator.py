@@ -12,7 +12,7 @@ class Generator:
 
     @staticmethod
     def initUtilisations(tasksNumber, totalUtilisation):
-        utilisations = [randint(10, 100) for i in range(tasksNumber)]
+        utilisations = [randint(10, 100) for _ in range(tasksNumber)]
         factor = sum(utilisations) / totalUtilisation
         utilisations = [round(utilisation / factor, 2) for utilisation in utilisations]
         return utilisations
