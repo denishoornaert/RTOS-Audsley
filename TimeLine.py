@@ -49,6 +49,13 @@ class TimeLine():
     def addDeadline(self, time, task, jobNb):
         self.addEvent(time, "Deadline", task, jobNb)
 
+    def addDeadlineMiss(self, time, task, jobNb):
+        s = ("{0}: job T{1}J{2} misses a deadline\n").format(time, task.priority, jobNb)
+        self.history.setdefault(time, []);
+        events = self.history.get(time)
+        events.append(s)
+        self.upperBound = time
+
     def applyTask(self, task):
         time = task.offset
         jobNb = 0

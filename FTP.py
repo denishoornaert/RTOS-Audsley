@@ -38,8 +38,7 @@ class FTP:
                         cpuUsed -= 1
                     else:
                         if soft:
-                            s = "{0}: Job T{1}J{2} misses a deadline"
-                            print(s.format(counter, task.priority, jobNb))
+                            self.timeline.addDeadlineMiss(counter, task, jobNb);
                         res = False
             else:
                 counter += 1
