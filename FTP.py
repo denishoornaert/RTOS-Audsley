@@ -1,30 +1,24 @@
+from TimeLine import *
+
 class FTP:
     """docstring for FTP."""
 
     def __init__(self, lowerBound, upperBound):
         self.lowerBound = lowerBound
         self.upperBound = upperBound
-        self.timeline = []
+        self.timeline = TimeLine(lowerBound, upperBound)
         self.config = None
-        self.initList()
 
     def __str__(self):
-        out = ""
-        res = [" " * self.upperBound for _ in range(len(self.config.tasks))]
-        for i in range(len(self.timeline)):
-            elem = self.timeline[i]
-            if elem is not None:
-                res[elem.priority] = res[elem.priority][:i] + str(elem.priority) + res[elem.priority][i:]
-        res.reverse()
-        for line in res:
-            out += line + "\n"
+        out = "Schedule from: {0} to: {1}; {2} tasks\n"
+        out = out.format(self.lowerBound, self.upperBound, len(self.config.tasks))
+        out += self.timeline.__str__();
         return out
-
-    def initList(self):
-        self.timeline = [None for _ in range(self.upperBound)]
 
     def setConfig(self, config):
         self.config = config
+        for task in self.config.tasks:
+            self.timeline.applyTask(task)
 
     def schedule(self, soft, task):
         res = True
