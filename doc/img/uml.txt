@@ -1,0 +1,77 @@
+@startuml
+'pas d'ombre
+skinparam shadowing false
+
+'taille de l'image
+skinparam dpi 200 
+
+'couleurs
+skinparam class {
+  BackgroundColor AliceBlue
+  ArrowColor CornflowerBlue
+  BorderColor CornflowerBlue
+}
+skinparam stereotypeCBackgroundColor OldLace
+
+class Main {
+}
+
+class FileController <static> <<Factory>> {
++writeConfig(Configuration)
++produceConfig(Configuration)
+}
+
+class Configuration {
+- tasks = []
+-getOMax()
+-getPMax()
++getutilisation()
++isSynchronous()
++feasibilityInterval()
+}
+
+class Task {
+-int offset
++int period
++int deadline
++int wcet
++int priority
++float utilisation()
+}
+
+class FTP {
+-timeline = [Task]
++Configuration config
+-schedule(bool soft, Task task)
+#hardSchedule(Task task)
+}
+
+class Simulator {
++start()
+}
+
+class Audsley {
+-softSchedule(Task task)
+-bool lpv(Task task)
+-audsley(int recursionLevel, tasksSubSet)
++start()
+}
+
+class Generator <static> <<Factory>> {
++task(int utilisation)
++configuration(int tasksNumber, int utilisation)
+}
+
+class OutputFactory <static> <<Factory>> {
++produce(Simulator simulator, String filePath)
+}
+
+Main -right-- FileController
+Main --- Configuration
+Main --- Generator
+Main -left-- OutputFactory
+Task -down-* Configuration
+Simulator -up-|> FTP
+Audsley -up-|> FTP
+Configuration -right-* FTP
+@enduml
