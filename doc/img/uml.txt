@@ -1,4 +1,18 @@
 @startuml
+'pas d'ombre
+skinparam shadowing false
+
+'taille de l'image
+skinparam dpi 200 
+
+'couleurs
+skinparam class {
+  BackgroundColor AliceBlue
+  ArrowColor CornflowerBlue
+  BorderColor CornflowerBlue
+}
+skinparam stereotypeCBackgroundColor OldLace
+
 class Main {
 }
 
@@ -52,15 +66,12 @@ class OutputFactory <static> <<Factory>> {
 +produce(Simulator simulator, String filePath)
 }
 
-Main --- FileController
+Main -right-- FileController
 Main --- Configuration
-Main --- Simulator
-Main --- Audsley
 Main --- Generator
-Main --- OutputFactory
-Configuration --- FileController
-Configuration *-- Task
-FTP <|- Simulator
-FTP <|- Audsley
-FTP *-- Configuration
+Main -left-- OutputFactory
+Task -down-* Configuration
+Simulator -up-|> FTP
+Audsley -up-|> FTP
+Configuration -right-* FTP
 @enduml
