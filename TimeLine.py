@@ -3,7 +3,7 @@ class TimeLine():
 
     def __init__(self, lowerBound, upperBound):
         self.history = dict()
-        self.timeline = [None for _ in range(upperBound+1)]
+        self.timeline = [None for _ in range(upperBound+1)] # '+1' includes the upper bound in the simulation output
         self.lowerBound = lowerBound
         self.upperBound = upperBound
 
@@ -24,7 +24,7 @@ class TimeLine():
             output += self.retrieveEvents(time)
             if taskExec != self.timeline[time]:
                 if taskExec != None:
-                    output += "{0}-{1}: T{2}J{3}\n".format(startTaskExec, time, taskExec.priority, "X")
+                    output += "{0}-{1}: T{2}J{3}\n".format(startTaskExec, time, taskExec[0], taskExec[1])
                 startTaskExec = time
                 taskExec = self.timeline[time]
         return output
@@ -51,7 +51,7 @@ class TimeLine():
 
     def applyTask(self, task):
         time = task.offset
-        jobNb = 1
+        jobNb = 0
         while time < self.upperBound:
             self.addArrival(time, task, jobNb)
             deadline = time+task.period

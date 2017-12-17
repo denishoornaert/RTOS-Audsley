@@ -33,7 +33,7 @@ class FTP:
                     cpuUsed = task.wcet
                 else:
                     if soft or (counter < task.offset + (jobNb * task.period) + task.deadline):
-                        self.timeline[counter] = task
+                        self.timeline[counter] = (task.priority, jobNb)
                         counter += 1
                         cpuUsed -= 1
                     else:

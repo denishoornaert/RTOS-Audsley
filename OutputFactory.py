@@ -15,7 +15,7 @@ class OutputFactory:
         for i in range(len(simulator.timeline)):
             elem = simulator.timeline[i]
             if elem is not None:
-                res[elem.priority][i] = elem.priority + 1
+                res[elem[0]][i] = elem[0] + 1
         res.reverse()
         return numpy.matrix(res)
 
