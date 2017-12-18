@@ -15,7 +15,7 @@
 \section{Introduction}
 
 \section{Implementation choices}
-  The aim of ther present section is to give to the reader a quick overview of the utility of each of the implemented classes.\\
+  The aim of the present section is to give to the reader a quick overview of the utility of each of the implemented classes.\\
   
   \begin{figure}[ht!]
     \centering
@@ -32,7 +32,7 @@
   \end{itemize}
   The "scheduling dedicated" classes~:
   \begin{itemize}
-    \item \verb|FTP|~: Abbreviation of First Task Priority, this class just regroup common features of its two children (\verb|Simulator| and \verb|Audsley|). Typically, these features are the time line structure, the hard scheduling and so on.
+    \item \verb|FTP|~: Abbreviation of Fixed Task Priority, this class just regroup common features of its two children (\verb|Simulator| and \verb|Audsley|). Typically, these features are the time line structure, the hard scheduling and so on.
     \item \verb|Simulator|~: The class has for only objective to hard schedule every tasks of a given \verb|Collection| object and to print the "events" of the simulation as stipulated in the assignment statement.
     \item \verb|Audsley|~: Even though this class inherits from \verb|FTP| like \verb|Simulator|, its objective is diffrent as it does not aim to simulate anything. in fact, this class is focused on computing the \textit{least priority viable task} of a tasks collection and deducing a nice priority assignment using the Audsley algorithm.
   \end{itemize}
@@ -62,7 +62,7 @@
   Once done, we can create a task based on the given utilisation (one of the vector) as follow~:
   \begin{enumerate}
     \item we generate a random offset
-    \item we generate a random wcet with the condition that it must be greater than 0 because otherwise the task is useless and because a negative wcet makes no sense
+    \item we generate a random WCET with the condition that it must be greater than 0 because otherwise the task is useless and because a negative wcet makes no sense
     \item for the period, we cannot generate a fully random value as the utilisation must be respected. Hence, we determine its value using the following formula~:
       \[U(\tau_{i}) = \frac{C_{i}}{T_{i}} \hspace{1cm} \Leftrightarrow \hspace{1cm} T_{i} = \frac{C_{i}}{U(\tau_{i})}\]
     \item we generate a random deadline with the condition that it must at least be equal to the wcet and at most equal to the period
@@ -76,7 +76,7 @@
 
 \section{Project output dependencies}
   \label{sec:output-dependencies}
-  The python's modules used to generate the image of the scheduling are called \verb|numpy| and \verb|matplotlib|. Even though they are quite famous amongst python programmers, they are not part of the standard library. Hence, they need to be manually installed sometimes. This can be easily be achieved by using \verb|pip3| and by typing the following commands~:
+  The python modules used to generate the image of the scheduling are called \verb|numpy| and \verb|matplotlib|. Even though they are quite famous amongst python programmers, they are not part of the standard library. Hence, they need to be manually installed sometimes. This can be easily be achieved by using \verb|pip3| and by typing the following commands~:
   \begin{verbatim}
 sudo pip3 install numpy
 sudo pip3 install matplotlib
