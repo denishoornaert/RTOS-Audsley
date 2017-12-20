@@ -30,7 +30,7 @@ class Audsley(FTP):
             lpvTask = None
             for task in tasksSubSet:
                 tmpStr = ""
-                self.initList()
+                self.timeline = TimeLine(self.lowerBound, self.upperBound)
                 isLpv = self.lpv(task)
                 if isLpv:
                     lpvTask = task

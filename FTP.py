@@ -37,7 +37,7 @@ class FTP:
                         counter += 1
                         cpuUsed -= 1
                     else:
-                        if soft:
+                        if not soft:
                             self.timeline.addDeadlineMiss(counter, task, jobNb);
                         res = False
             else:
