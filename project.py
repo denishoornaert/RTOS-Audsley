@@ -24,7 +24,8 @@ class Main:
 
         if argv[0] == "interval":
             config = FileController.produceConfig(argv[1])
-            print(config.feasibilityInterval())
+            fi = config.feasibilityInterval()
+            print("{0},{1}".format(fi[0], fi[1]))
         elif argv[0] == "sim":
             config = FileController.produceConfig(argv[3])
             sim = Simulator(int(argv[1]), int(argv[2]))
