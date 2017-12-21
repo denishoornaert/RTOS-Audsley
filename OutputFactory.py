@@ -1,13 +1,8 @@
-import matplotlib.pylab as plt
 import numpy
 
 
 class OutputFactory:
     """docstring for OutputFactory."""
-
-    @staticmethod
-    def toFile(plot, filePath):
-        plot.savefig(filePath, bbox_inches='tight')
 
     @staticmethod
     def toMatrix(simulator):
@@ -19,8 +14,11 @@ class OutputFactory:
         res.reverse()
         return numpy.matrix(res)
 
+    # There is an import in this method because otherwise the import is every
+    # time executed but it is not garanteed that the module 'matplotlib' is installed.
     @staticmethod
-    def generateFigure(matrix):
+    def generateFigure(matrix, filePath):
+        import matplotlib.pylab as plt
         fig = plt.figure()
         ax = fig.add_subplot(1, 1, 1)
         ax.set_aspect('equal')
@@ -28,10 +26,9 @@ class OutputFactory:
         plt.imshow(matrix, interpolation='nearest', cmap=plt.cm.get_cmap('hot_r'))
         plt.xlabel('Time slots')
         plt.ylabel('Tasks')
-        return plt
+        plt.savefig(filePath, bbox_inches='tight')
 
     @staticmethod
     def produce(simulator, filePath):
         matrix = OutputFactory.toMatrix(simulator)
-        fig = OutputFactory.generateFigure(matrix)
-        OutputFactory.toFile(fig, filePath)
+        OutputFactory.generateFigure(matrix, filePath)
