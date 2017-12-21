@@ -12,8 +12,6 @@
 
 \maketitle
 
-\section{Introduction}
-
 \section{Implementation choices}
   The aim of the present section is to give to the reader a quick overview of the utility of each of the implemented classes.\\
   
@@ -81,7 +79,12 @@
 sudo pip3 install numpy
 sudo pip3 install matplotlib
   \end{verbatim}
-  The commands above have been tested on Ubuntu 16.04 LTS but might differ depending on the distribution and the version.
+  The commands above have been tested on Ubuntu 16.04 LTS but might differ depending on the distribution and the version.\\
+  
+  \noindent Important~: The code will only produce an image if the user append the name of the desired image file to the command used for starting a simulation. If no fourth argument is provided then a simple simulation will be executed. Example~:
+  \begin{verbatim}
+    python3 project.py sim <start> <stop> <taskFile> <imageFile>
+  \end{verbatim}
   \begin{figure}[ht!]
     \centering
     \includegraphics{img/schedule1.png}

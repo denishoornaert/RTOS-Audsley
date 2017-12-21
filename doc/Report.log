@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.5)  21 DEC 2017 19:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.5)  21 DEC 2017 21:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -619,7 +619,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--83
 <img/schedule1.png, id=23, 402.5439pt x 63.5976pt>
 File: img/schedule1.png Graphic file (type png)
  <use img/schedule1.png>
-Package pdftex.def Info: img/schedule1.png used on input line 90.
+Package pdftex.def Info: img/schedule1.png used on input line 92.
 (pdftex.def)             Requested size: 402.54291pt x 63.59743pt.
 
 [3 <./img/distribution.png> <./img/schedule1.png>] (./Report.aux) ) 
@@ -642,7 +642,7 @@ hare/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public
 mf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri
 10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fon
 ts/type1/public/lm/lmtt10.pfb>
-Output written on Report.pdf (3 pages, 324331 bytes).
+Output written on Report.pdf (3 pages, 324464 bytes).
 PDF statistics:
  67 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream
