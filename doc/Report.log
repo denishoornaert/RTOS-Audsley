@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.5)  18 DEC 2017 15:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.12.5)  21 DEC 2017 19:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -571,69 +571,78 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 13.
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
 
 <img/uml.png, id=1, 1897.0875pt x 1105.12875pt>
 File: img/uml.png Graphic file (type png)
  <use img/uml.png>
-Package pdftex.def Info: img/uml.png used on input line 22.
+Package pdftex.def Info: img/uml.png used on input line 20.
 (pdftex.def)             Requested size: 331.99529pt x 193.40042pt.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 26.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 24.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 26--27
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 30.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 28.
 (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 30.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 28.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./img/uml.png (PNG copy)>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 50.
- [2]
-<img/distribution.png, id=21, 407.6028pt x 300.6432pt>
+(Font)              <10.95> on input line 48.
+
+<img/distribution.png, id=13, 407.6028pt x 300.6432pt>
 File: img/distribution.png Graphic file (type png)
 
 <use img/distribution.png>
-Package pdftex.def Info: img/distribution.png used on input line 73.
+Package pdftex.def Info: img/distribution.png used on input line 71.
 (pdftex.def)             Requested size: 285.32pt x 210.44879pt.
- <img/schedule1.png, id=23, 402.5439pt x 63.5976pt>
-File: img/schedule1.png Graphic file (type png)
 
-<use img/schedule1.png>
-Package pdftex.def Info: img/schedule1.png used on input line 87.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
+
+ []
+
+<img/schedule1.png, id=23, 402.5439pt x 63.5976pt>
+File: img/schedule1.png Graphic file (type png)
+ <use img/schedule1.png>
+Package pdftex.def Info: img/schedule1.png used on input line 90.
 (pdftex.def)             Requested size: 402.54291pt x 63.59743pt.
- [3 <./img/distribution.png> <./img/schedule1.png>]
-(./Report.aux) ) 
+
+[3 <./img/distribution.png> <./img/schedule1.png>] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
  2657 strings out of 494953
  35923 string characters out of 6180977
- 97195 words of memory out of 5000000
+ 98195 words of memory out of 5000000
  5885 multiletter control sequences out of 15000+600000
  38922 words of font info for 36 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,7n,23p,392b,227s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/
-texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-
-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/e
-nc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></
-usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/sh
-are/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy
-10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on Report.pdf (3 pages, 324210 bytes).
+{/usr/share/
+texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-
+mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fon
+ts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</
+usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri
+10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fon
+ts/type1/public/lm/lmtt10.pfb>
+Output written on Report.pdf (3 pages, 324331 bytes).
 PDF statistics:
  67 PDF objects out of 1000 (max. 8388607)
  46 compressed objects within 1 object stream
