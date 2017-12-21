@@ -24,7 +24,7 @@ class TimeLine():
             output += self.retrieveEvents(time)
             if taskExec != self.timeline[time]:
                 if taskExec != None:
-                    output += "{0}-{1}: T{2}J{3}\n".format(startTaskExec, time, taskExec[0], taskExec[1])
+                    output += "{0}-{1}: T{2}J{3}\n".format(startTaskExec, time, taskExec[0]+1, taskExec[1]+1)
                 startTaskExec = time
                 taskExec = self.timeline[time]
         return output
@@ -38,7 +38,7 @@ class TimeLine():
         return output
 
     def addEvent(self, time, eventType, task, jobNb):
-        s = ("{0}: {1} of job T{2}J{3}\n").format(time, eventType, task.priority, jobNb)
+        s = ("{0}: {1} of job T{2}J{3}\n").format(time, eventType, task.priority+1, jobNb+1)
         self.history.setdefault(time, []);
         events = self.history.get(time)
         events.append(s)
@@ -50,7 +50,7 @@ class TimeLine():
         self.addEvent(time, "Deadline", task, jobNb)
 
     def addDeadlineMiss(self, time, task, jobNb):
-        s = ("{0}: job T{1}J{2} misses a deadline\n").format(time, task.priority, jobNb)
+        s = ("{0}: job T{1}J{2} misses a deadline\n").format(time, task.priority+1, jobNb+1)
         self.history.setdefault(time, []);
         events = self.history.get(time)
         events.append(s)
