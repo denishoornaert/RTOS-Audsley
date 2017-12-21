@@ -31,7 +31,9 @@ class Main:
             sim.setConfig(config)
             sim.start()
             print(sim)
-            OutputFactory.produce(sim, "schedule1.png")
+            print(argv, len(argv))
+            if len(argv) == 5:
+                OutputFactory.produce(sim, argv[4])
         elif argv[0] == "audsley":
             config = FileController.produceConfig(argv[3])
             aud = Audsley(int(argv[1]), int(argv[2]))
