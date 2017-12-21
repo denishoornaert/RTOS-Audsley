@@ -31,9 +31,13 @@ class Main:
             sim.setConfig(config)
             sim.start()
             print(sim)
-            print(argv, len(argv))
-            if len(argv) == 5:
-                OutputFactory.produce(sim, argv[4])
+        elif argv[0] == "sim+img":
+            config = FileController.produceConfig(argv[3])
+            sim = Simulator(int(argv[1]), int(argv[2]))
+            sim.setConfig(config)
+            sim.start()
+            print(sim)
+            OutputFactory.produce(sim, argv[4])
         elif argv[0] == "audsley":
             config = FileController.produceConfig(argv[3])
             aud = Audsley(int(argv[1]), int(argv[2]))
