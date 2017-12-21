@@ -1,3 +1,5 @@
+import fractions
+
 class Configuration:
     """docstring for Configuration."""
 
@@ -11,11 +13,18 @@ class Configuration:
         res += "Utilisation : " + str(self.getUtilisation())
         return res
 
+    def lcm(self, value1, value2):
+        res = 0
+        if(value1 and value2):
+            res = abs(value1*value2)/fractions.gcd(value1, value2)
+        return int(res)
+
     def getOMax(self):
         return max([task.offset for task in self.tasks])
 
+    # Actually not really optimal in case of a huge configuration
     def getPMax(self):
-        return max([task.period for task in self.tasks])
+        return max([self.lcm(task1.period, task2.period) for task1 in self.tasks for task2 in self.tasks])
 
     def getUtilisation(self):
         return sum([task.utilisation() for task in self.tasks]) * 100
