@@ -30,13 +30,13 @@ class Audsley(FTP):
             lpvTask = None
             for task in tasksSubSet:
                 tmpStr = ""
-                self.initList()
+                self.timeline = TimeLine(self.lowerBound, self.upperBound)
                 isLpv = self.lpv(task)
                 if isLpv:
                     lpvTask = task
                 else:
                     tmpStr = "not "
-                self.log += s.format(task.priority, tmpStr) + "\n"
+                self.log += s.format(task.priority+1, tmpStr) + "\n"
             if lpvTask is None:
                 self.log = "No priority assignment found"
             else:
